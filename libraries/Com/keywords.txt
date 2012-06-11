@@ -1,0 +1,24 @@
+#######################################
+# Syntax Coloring Map For Com
+#######################################
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+start	KEYWORD2
+commandByte	KEYWORD2
+payloadByte1	KEYWORD2
+payloadByte2	KEYWORD2
+dataChanged	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+Com	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+

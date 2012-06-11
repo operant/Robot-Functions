@@ -1,0 +1,5 @@
+Things to do for the Com library:
+
+-Create a much more elegant solution to handle packets with too few or too many bytes
+-Get rid of global variables
+-Solve pesky println issue involving if statements
