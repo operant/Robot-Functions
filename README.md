@@ -1,10 +1,10 @@
 # The Com Library
 
-### A simple but effective library for comunications with the cRIO over I2C
+### A simple but effective library for communications with the cRIO over I2C
 
 ## Credits
 
-Written by me but I have to credit Grant Farrand with the original design of the protocol used by the library.
+Written by me (Operant) but I have to credit Grant Farrand with the original design of the protocol used by the library. Big thanks to Steve for all the work he has done in expanding my knowledge of the Arduino platform, I2C, and general circuits.
 
 
 ## Installing
@@ -42,7 +42,7 @@ This function is what sets up the I2C communications on the Arduino. To use this
 
 We have created a simple protocol that we use when talking with the cRIO. The protocol itself has verifications built in to insure the integrity of the data being passed between the cRIO and the Arduino. In addition, packets containing more packets than the required 5 will be detected and removed from the buffer. Please note that although this is a dirty fix, the rare nature of these bad packets ensures few valid packets are lost (a more elegant solution is in the works). To create a valid packet, simply follow the guide below:
 
-**Side Note: All is represented in hex in the program and thus I will be using hex for this portion. Please be aware that most of the hex values do not correspond to any relative ASCII characters and the program is simply looking for raw hex data. However, there are a few functions that may require specific bytes to be sent based on events that are occuring. Check the comments in the code to see if the functions you want to use require any.**
+**Side Note: All is represented in hex in the program and thus I will be using hex for this portion. Please be aware that most of the hex values do not correspond to any relative ASCII characters and the program is simply looking for raw hex data. However, there are a few functions that may require specific bytes to be sent based on events that are occurring. Check the comments in the code to see if the functions you want to use require any.**
 
      ______________________ ________________________________________________ _________________________ _________________________
     |                      |                      |                         |       Inverse of        |        Inverse of       |
@@ -68,7 +68,7 @@ So what is the "inverse" of a byte? Well, lets look at this packet in binary.
     
 Notice the pattern? To produce the inverses of the payload bytes, just flip the bits and then use those to calculate the respective hexadecimal representation.
 
-Once you have your packets constructed, you need to ensure that the Arduino is properly set up as a slave device with a non-conflicting address (you only need to worry about this if you are using multiple slave devices over the same I2C lines). The Wire library expects the address that is passed in to be a numerical value instead of a hexadecimal value which is more commonly used. Simply choose a hexadecimal address and find the corresponding numerical address (convert to ASCII characters). Then use this for the i2cAddress variable.
+Once you have your packets constructed, you need to ensure that the Arduino is properly set up as a slave device with a non-conflicting address (you only need to worry about this if you are using multiple slave devices over the same I2C lines). The Wire library expects the address that is passed in to be a numerical value instead of a hexadecimal value which is more commonly used. Simply choose a hexadecimal address and find the corresponding numerical address (convert to ASCII characters). Then use this in the Com.start function.
 
 ## Contributing
 
